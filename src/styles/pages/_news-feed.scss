@@ -1,0 +1,42 @@
+.news-feed{
+    padding: 50px;
+}
+.news-feed .byAvatar{
+    float: left;
+    margin-right: 12px;
+    margin-top: -15px;
+}
+.feed-card{
+    border: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+.feed-header{
+    padding: 25px;
+    border-bottom: 1px solid #ddd;
+}
+.feed-content{
+    padding: 25px;
+}
+.feed-footer ul{
+    display: table;
+    width: 100%;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.feed-footer ul li{
+    display: table-cell;
+    border-right: 1px solid #ddd;
+}
+.feed-footer ul li:last-child{
+    border-right: none;
+}
+.feed-footer ul li a{
+    padding: 8px 15px;
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .news-feed{
+        padding: 25px;
+    }
+}

@@ -1,0 +1,479 @@
+/*Header Styles*/
+.jr-menu-icon {
+  outline: none !important;
+  @include justify-content(flex-start !important);
+  @extend %size-30;
+  padding: 0 5px !important;
+  @extend %jr-menu-icon;
+  margin-right: 15px;
+}
+
+.app-main-header {
+  //z-index: 1302 !important;
+  background-color: $headerColor !important;
+  color: #111111 !important;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  & .search-bar input {
+    @include transition($transition-base);
+    background-color: lighten(#6c6c6e, 5%);
+    color: $white;
+    & + .search-icon {
+      top: 0;
+      & i {
+        color: rgba($white, 0.8);
+      }
+    }
+
+    &:focus {
+      background-color: $white;
+      color: $body-color;
+      + .search-icon {
+        & i {
+          color: rgba($body-color, 0.8);
+        }
+      }
+    }
+  }
+}
+
+.app-logo img {
+  height: 35px;
+
+  @media screen and (max-width: 575px) {
+    height: 28px;
+  }
+}
+
+.app-toolbar {
+  min-height: $app-bar-height;
+  height: $app-bar-height;
+  max-height: $app-bar-height;
+
+  & .search-bar {
+    margin-left: 50px;
+    margin-right: auto;
+    max-width: 400px;
+    width: 380px;
+
+    @media screen and (max-width: 991px) {
+      width: 280px;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-left: 40px;
+      width: 200px;
+    }
+  }
+}
+
+.app-toolbar {
+  & .nav-searchbox {
+    & .search-bar {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    & .search-bar input {
+      @include transition($transition-base);
+      background-color: $white;
+      color: $body-color;
+      & + .search-icon {
+        & i {
+          color: rgba($body-color, 0.8);
+        }
+      }
+
+      &:focus {
+        background-color: transparent;
+        color: $body-color;
+        + .search-icon {
+          & i {
+            color: rgba($body-color, 0.8);
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-menu{
+  padding: 0;
+  margin: 0;
+}
+
+.header-menu li{
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.header-menu li a{
+  color: #777;
+  font-size: 13px;
+}
+
+.header-menu li a:hover{
+  text-decoration: none;
+}
+
+.header-notifications {
+  margin-bottom: 0;
+  margin-top: -20px;
+
+  & li {
+    vertical-align: middle;
+  }
+}
+
+@media only screen and (max-width: 1320px) {
+  .header-menu{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-notifications li{
+    margin-right: .001% !important;
+  }
+}
+
+.quick-menu {
+  & .dropdown-menu {
+    padding: 5px 10px;
+    width: 350px;
+
+    & .jr-card-header {
+      margin: -5px -10px 5px;
+      padding: 10px 10px 10px 20px;
+      @include box-shadow($shadow-sm);
+      z-index: 10;
+    }
+
+    &:after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid $white;
+      top: -9px;
+      content: "";
+      height: 9px;
+      position: absolute;
+      right: 8px;
+      width: 10px;
+    }
+
+    &:before {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid $black;
+      top: -10px;
+      content: "";
+      height: 10px;
+      position: absolute;
+      right: 8px;
+      width: 10px;
+    }
+
+    @media screen and (max-width: 575px) {
+      width: 205px;
+    }
+  }
+
+  & .messages-list .user-avatar {
+    position: relative;
+  }
+
+  & .messages-list .badge {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    text-align: center;
+    padding: 0;
+  }
+
+}
+
+.messages-list ul li {
+  position: relative;
+  padding: 20px 10px 14px;
+  border-bottom: 1px solid $gray-300;
+
+  & .user-name a {
+    color: $app-primary;
+  }
+
+  & .sub-heading {
+    font-size: 11px;
+    margin-bottom: 6px !important;
+
+    &.mb-0 {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 0 none;
+  }
+
+  & .jr-btn {
+    margin-right: 0 !important;
+  }
+
+  & .jr-btn-xs {
+    font-size: 11px !important;
+    padding: 5px !important;
+  }
+}
+
+.quick-menu {
+  & .icon-btn {
+    color: $white;
+  }
+
+  & .icon-alert {
+    position: relative;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 0;
+      z-index: 10;
+      width: 8px;
+      height: 8px;
+      background-color: $danger;
+      @include border-radius(50%);
+      @extend %pulse-effect;
+    }
+  }
+
+  & i.animated.infinite {
+    -moz-animation-iteration-count: 25;
+    -webkit-animation-iteration-count: 25;
+    -o-animation-iteration-count: 25;
+    animation-iteration-count: 25;
+  }
+}
+
+.quick-menu {
+  & .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    left: auto !important;
+    right: 0 !important;
+    opacity: 0;
+    transform: translate3d(0px, 100px, 0px) !important;
+    @include transition(all 200ms linear 0ms);
+  }
+
+  &.show .dropdown-menu {
+    opacity: 1;
+    transform: translate3d(0px, 30px, 0px) !important;
+    visibility: visible;
+  }
+}
+
+.profile-menu{
+
+  // background-color: #211525;
+  // position: absolute;
+  // height: 100%;
+  // width: 280px;
+  // right: 0;
+  // top: -50px;
+  // display: none;
+  // box-shadow: 0 0 0 3px #180f1b;
+  
+}
+
+.icon-profile-menu{
+  color: #fffbfa;
+}
+
+.icon-switch-account{
+  color: #fffbfa;
+}
+
+.jr-menu-icon{
+  display: none !important;
+}
+
+//Burger Menu Wrapper
+.bm-menu-wrap{
+  top: 0;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 20px;
+  top: 25px;
+  opacity: 0;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #211525;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #211525;
+  // width: 280px!important;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/*Profile Menu Styles*/
+.bm-item-list{
+  width: 225% !important;
+  left: -123px !important;
+  text-align: center;
+}
+
+.bm-item-list .profile-menu .menu-items{
+  width: 100%;
+}
+
+.bm-item-list .profile-menu .menu-items li{
+  list-style: none;
+  border-bottom: 1px solid #222;
+}
+
+.bm-item-list .profile-menu .menu-items li:first-child{
+  border-top: 1px solid #222;
+}
+
+.bm-item-list .profile-menu .menu-items li a{
+  color: #777;
+  display: block;
+  padding: 6px 0;
+  transition: .5s;
+}
+
+.bm-item-list .profile-menu .menu-items li a:hover{
+  color: $accentPrimary;
+  text-decoration: none;
+}
+
+.profile-wrapper{
+
+}
+
+.profile-wrapper .profile-image{
+    width: 120px;
+    height: 120px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.profile-wrapper a{
+  color: $accentPrimary;
+}
+
+.profile-wrapper h1{
+  margin-bottom: 0;
+}
+
+.profile-wrapper small{
+ color: #555;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+  right: 0;
+  top: 0;
+}
+
+// ===========================Side Menu Bar ========================
+
+.menu-bar{
+  background-color: #1b1b1b;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.menu-bar ul{
+  position: fixed;
+  left: 0;
+  top: 70px;
+  height: 100%;
+  padding: 0;
+  overflow: auto;
+  background-color: #1b1b1b;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);  
+}
+
+.menu-bar ul li{
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  background-color: #1b1b1b;
+  border-bottom: 1px solid #180f1b;
+  text-align: center;
+  font-size: 11px;
+}
+
+.menu-bar ul li:last-child{
+  border-bottom: none;
+}
+
+.menu-bar ul li a{
+  display: grid;
+  padding: 18px 5px;
+  color: #ddd;
+  transition: .3s;
+}
+
+.menu-bar ul li a:hover,
+.menu-bar ul li a:active{
+  background-color: #180f1b;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.menu-bar ul li a i{
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 8px;
+}
